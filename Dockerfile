@@ -1,9 +1,7 @@
-FROM centos:latest
+FROM eclipse-temurin:17-jdk-jammy
 
-RUN yum install httpd -y 
+ARG JAR_FILE=target/demo-0.0.1-SNAPSHOT.jar
+COPY ${JAR_FILE}.jar
 
-COPY index.html /var/www/html/
-
-EXPOSE 80
-
-CMD ["httpd", "-D", "FOREGROUND"]
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/app.jar"]
