@@ -33,7 +33,7 @@ pipeline
 		{
 			steps	
 			{
-				junit 'target/surefire-reports/*.xml
+				junit 'target/surefire-reports/*.xml'
 			}
 		}
 		stage ('Build docker image')
@@ -69,7 +69,7 @@ pipeline
 	{
 		always
 		{
-			archiveArtifacts artifacts: 'target/surefire-reports/*.xml', fingerprint: true
+			archiveArtifacts artifacts: 'target/*.xml', fingerprint: true
 		}
 	}
 }
