@@ -49,7 +49,7 @@ pipeline
 			{
 				withCredentials ([usernamePassword(credentialsId: 'docker_cred', usernameVariable: 'DOCKERHUB_USER', passwordVariable: 'DOCKERHUB_PASS')])
 				{
-					sh 'echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_PASS
+					sh 'echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASS'
 					sh 'docker push ${REGISTRY}:${IMAGE_TAG}'
 				}
 			}
