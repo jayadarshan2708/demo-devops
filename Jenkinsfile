@@ -12,7 +12,7 @@ pipeline
 		{
 			steps
 			{
-				sh 'git branch: 'main', credentialsId: 'git_cred', url: 'https://github.com/jayadarshan2708/demo-devops.git'
+				git branch: 'main', credentialsId: 'git_cred', url: 'https://github.com/jayadarshan2708/demo-devops.git'
 			}
 		}
 		stage ('Checkout')
