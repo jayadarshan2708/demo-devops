@@ -23,13 +23,16 @@ pipeline {
 
         stage('Build Maven Project') {
             steps {
-                sh 'mvn -B -DskipTests=false clean package'
+                dir('app'){
+			sh'mvn -B -DskipTests=false clean package'
+		}
             }
         }
 
         stage('Unit Tests') {
             steps {
-                junit 'target/surefire-reports/*.xml'
+		dir('app'){
+			sh 'mvn test'
             }
         }
 
