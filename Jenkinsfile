@@ -33,6 +33,7 @@ pipeline {
             steps {
 		dir('app'){
 			sh 'mvn test'
+		}
             }
         }
 
